@@ -10,7 +10,9 @@ for i in range(n):
     l1.sort(reverse=True)
 for i in range(len(l1)):
     qtd += 1
-    if (l1[i] == k):
+    if (l1[i] == l1[k]):
+        if (l1[i] == l1[i+1]):
+            qtd += 1
         break
 
 print(qtd)
