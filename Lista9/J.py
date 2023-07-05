@@ -7,12 +7,10 @@ qtd = 0
 for i in range(n):
     n1 = int(input())
     l1.append(n1)
-    l1.sort(reverse=True)
+l1.sort(reverse=True)
 for i in range(len(l1)):
-    qtd += 1
-    if (l1[i] == l1[k]):
-        if (l1[i] == l1[i+1]):
-            qtd += 1
-        break
-
+    limite = l1[k-1]
+    if l1[i] >= limite:
+        qtd +=1
 print(qtd)
+
