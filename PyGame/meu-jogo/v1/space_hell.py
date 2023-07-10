@@ -12,14 +12,14 @@ def game_init(w, h):
 
 def draw_player(ship, ship_rect, display):
     ship_copy = ship.copy()
-    ship_rect = ship_copy.get_rect()
-    ship_rect.update((400, 0),(200, 300))
+    # ship_rect = ship_copy.get_rect()
+    # ship_rect.update((400, 0),(200, 300))
     display.blit(ship_copy, ship_rect)
 
 def draw_boss(boss, boss_rect, display):
     boss_copy = boss.copy()
-    boss_rect = boss_copy.get_rect()
-    boss_rect.update((400, 600), (400, 300))
+    # boss_rect = boss_copy.get_rect()
+    # boss_rect.update((400, 600), (400, 300))
     display.blit(boss_copy, boss_rect)
 
 def move_player(keys, ship_rect):
@@ -32,6 +32,17 @@ def move_player(keys, ship_rect):
     if keys[pygame.K_s]:
         ship_rect.y +=5
 
+def move_boss(keys, boss_rect):
+    if keys[pygame.K_RIGHT]:
+        boss_rect.x += 5
+    if keys[pygame.K_LEFT]:
+        boss_rect.x -= 5
+    if keys[pygame.K_UP]:
+        boss_rect.y -= 5
+    if keys[pygame.K_DOWN]:
+        boss_rect.y +=5
+    
+
 display = game_init(800,600)
 
 background_img = pygame.image.load("Space.jpg")
@@ -41,9 +52,9 @@ ship_rect = ship.get_rect()
 boss = pygame.transform.flip(pygame.image.load("Nave.bmp"), False, True)
 boss.set_colorkey((255,0,255))
 boss_rect = boss.get_rect()
-ship_rect.y = 0
+ship_rect.y = 600-boss_rect.bottom
 ship_rect.x = 400
-boss_rect.y = 600
+boss_rect.y = 0
 boss_rect.x = 400
 
 
@@ -55,6 +66,7 @@ while True:
     keys = pygame.key.get_pressed()
 
     move_player(keys, ship_rect)
+    move_boss(keys, boss_rect)
 
     display.blit(background_img, (0, 0))
     draw_player(ship, ship_rect, display)
