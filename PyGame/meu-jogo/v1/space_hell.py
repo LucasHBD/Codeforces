@@ -25,22 +25,38 @@ def draw_boss(boss, boss_rect, display):
 def move_player(keys, ship_rect):
     if keys[pygame.K_d]:
         ship_rect.x += 5
+        if ship_rect.right > 800:
+            ship_rect.right = 800
     if keys[pygame.K_a]:
         ship_rect.x -= 5
+        if ship_rect.left < 0:
+            ship_rect.left = 0
     if keys[pygame.K_w]:
         ship_rect.y -= 5
+        if ship_rect.top < 0:
+            ship_rect.top = 0
     if keys[pygame.K_s]:
         ship_rect.y +=5
+        if ship_rect.bottom > 600:
+            ship_rect.bottom = 600
 
 def move_boss(keys, boss_rect):
     if keys[pygame.K_RIGHT]:
         boss_rect.x += 5
+        if boss_rect.right > 800:
+            boss_rect.right = 800
     if keys[pygame.K_LEFT]:
         boss_rect.x -= 5
+        if boss_rect.left < 0:
+            boss_rect.left = 0
     if keys[pygame.K_UP]:
         boss_rect.y -= 5
+        if boss_rect.top < 0:
+            boss_rect.top = 0
     if keys[pygame.K_DOWN]:
         boss_rect.y +=5
+        if boss_rect.bottom > 600:
+            boss_rect.bottom = 600
     
 
 display = game_init(800,600)
@@ -49,13 +65,19 @@ background_img = pygame.image.load("Space.jpg")
 ship = pygame.image.load("Nave.bmp")
 ship.set_colorkey((255,0,255))
 ship_rect = ship.get_rect()
-boss = pygame.transform.flip(pygame.image.load("Nave.bmp"), False, True)
+boss = pygame.transform.flip(pygame.image.load("Boss.bmp"), False, True)
 boss.set_colorkey((255,0,255))
 boss_rect = boss.get_rect()
 ship_rect.y = 600-boss_rect.bottom
 ship_rect.x = 400
 boss_rect.y = 0
 boss_rect.x = 400
+#health bar
+max_health = 100
+health = 20
+ratio = health/max_health
+# pygame.draw.rect(display, "red", (250, 250, 300, 40))
+# pygame.draw.rect(display, "green", (250, 250, 300 * ratio, 40))
 
 
 while True:
@@ -71,5 +93,7 @@ while True:
     display.blit(background_img, (0, 0))
     draw_player(ship, ship_rect, display)
     draw_boss(boss, boss_rect, display)
+    pygame.draw.rect(display, "red", (250, 250, 300, 40))
+    pygame.draw.rect(display, "green", (250, 250, 300 * ratio, 40))
     pygame.display.flip()
     time.sleep(0.015)       
