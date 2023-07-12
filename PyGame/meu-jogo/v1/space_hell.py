@@ -20,7 +20,7 @@ def draw_boss(boss, boss_rect, display):
 
 
 def create_shot(x, y):
-    shot = {'rect': pygame.rect(x, y, 10, 10)}
+    shot = {'rect': pygame.Rect(x, y, 10, 10), 'color': (0,255,0,0)}
     shots.append(shot)
 
 def update_shots():
@@ -29,7 +29,7 @@ def update_shots():
 
 def draw_shots():
     for shot in shots:
-        pygame.image.load("bullet_green.png")
+        pygame.draw.rect(display, shot['color'], shot['rect'])
 
 def move_player(keys, ship_rect):
     if keys[pygame.K_d]:
@@ -69,7 +69,7 @@ def move_boss(keys, boss_rect):
 
 def player_shoot(keys, ship_rect):
     if keys[pygame.K_f]:
-        create_shot(ship_rect.y, ship_rect.x)
+        create_shot(ship_rect.x, ship_rect.y)
     
 
 display = game_init(800,600)
@@ -102,9 +102,10 @@ while True:
             sys.exit()
     keys = pygame.key.get_pressed()
 
+    player_shoot(keys, ship_rect)
     move_player(keys, ship_rect)
     move_boss(keys, boss_rect)
-    player_shoot(keys, ship_rect)
+    
 
     display.blit(background_img, (0, 0))
     draw_player(ship, ship_rect, display)
