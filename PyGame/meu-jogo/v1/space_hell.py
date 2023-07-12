@@ -12,15 +12,24 @@ def game_init(w, h):
 
 def draw_player(ship, ship_rect, display):
     ship_copy = ship.copy()
-    # ship_rect = ship_copy.get_rect()
-    # ship_rect.update((400, 0),(200, 300))
     display.blit(ship_copy, ship_rect)
 
 def draw_boss(boss, boss_rect, display):
     boss_copy = boss.copy()
-    # boss_rect = boss_copy.get_rect()
-    # boss_rect.update((400, 600), (400, 300))
     display.blit(boss_copy, boss_rect)
+
+
+def create_shot(x, y):
+    shot = {'rect': pygame.rect(x, y, 10, 10)}
+    shots.append(shot)
+
+def update_shots():
+    for shot in shots:
+        shot['rect'].y -= shot_speed
+
+def draw_shots():
+    for shot in shots:
+        pygame.image.load("bullet_green.png")
 
 def move_player(keys, ship_rect):
     if keys[pygame.K_d]:
@@ -57,6 +66,10 @@ def move_boss(keys, boss_rect):
         boss_rect.y +=5
         if boss_rect.bottom > 600:
             boss_rect.bottom = 600
+
+def player_shoot(keys, ship_rect):
+    if keys[pygame.K_f]:
+        create_shot(ship_rect.y, ship_rect.x)
     
 
 display = game_init(800,600)
@@ -78,6 +91,8 @@ health = 20
 ratio = health/max_health
 # pygame.draw.rect(display, "red", (250, 250, 300, 40))
 # pygame.draw.rect(display, "green", (250, 250, 300 * ratio, 40))
+shots = []
+shot_speed = 5
 
 
 while True:
@@ -89,11 +104,14 @@ while True:
 
     move_player(keys, ship_rect)
     move_boss(keys, boss_rect)
+    player_shoot(keys, ship_rect)
 
     display.blit(background_img, (0, 0))
     draw_player(ship, ship_rect, display)
     draw_boss(boss, boss_rect, display)
-    pygame.draw.rect(display, "red", (250, 250, 300, 40))
-    pygame.draw.rect(display, "green", (250, 250, 300 * ratio, 40))
+    update_shots()
+    draw_shots()
+    # pygame.draw.rect(display, "red", (250, 250, 300, 40))
+    # pygame.draw.rect(display, "green", (250, 250, 300 * ratio, 40))
     pygame.display.flip()
     time.sleep(0.015)       
