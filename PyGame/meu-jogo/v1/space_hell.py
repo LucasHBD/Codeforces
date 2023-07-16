@@ -89,10 +89,12 @@ def move_boss(keys, boss_rect):
         if boss_rect.bottom > 600:
             boss_rect.bottom = 600
 
-def player_shoot(keys, ship_rect):
-    if keys[pygame.K_f]:
-        create_shot(ship_rect.x, ship_rect.y)
-    
+# def player_shoot(keys, ship_rect):
+#     if keys[pygame.K_f]:
+#         current_time = pygame.time.get_ticks()
+#         if current_time - last_shot_time > shot_cooldown:
+#             create_shot(ship_rect.x, ship_rect.y)
+#             last_shot_time = current_time            
 
 display = game_init(800,600)
 
@@ -120,16 +122,23 @@ health_bar_color = (0, 255, 0)
 #Disparos
 shots = []
 shot_speed = 8
+shot_cooldown = 500
+last_shot_time = 0
 
-
+clock = pygame.time.Clock()
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
     keys = pygame.key.get_pressed()
+    if keys[pygame.K_f]:
+        current_time = pygame.time.get_ticks()
+        if current_time - last_shot_time > shot_cooldown:
+            create_shot(ship_rect.x, ship_rect.y)
+            last_shot_time = current_time 
 
-    player_shoot(keys, ship_rect)
+    # player_shoot(keys, ship_rect)
     move_player(keys, ship_rect)
     move_boss(keys, boss_rect)
 
@@ -146,4 +155,4 @@ while True:
     # pygame.draw.rect(display, "red", (250, 250, 300, 40))
     # pygame.draw.rect(display, "green", (250, 250, 300 * ratio, 40))
     pygame.display.flip()
-    time.sleep(0.015)       
+    clock.tick(60)       
