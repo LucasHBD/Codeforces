@@ -10,6 +10,7 @@ def game_init(w, h):
     pygame.display.set_caption("Space Hell")
     return display
 
+#Personagem
 def draw_player(ship, ship_rect, display):
     ship_copy = ship.copy()
     display.blit(ship_copy, ship_rect)
@@ -18,7 +19,7 @@ def draw_boss(boss, boss_rect, display):
     boss_copy = boss.copy()
     display.blit(boss_copy, boss_rect)
 
-
+#Disparos
 def create_shot(x, y):
     shot = {'rect': pygame.Rect(x, y, 10, 10), 'color': (0,255,0,0)}
     shots.append(shot)
@@ -31,6 +32,27 @@ def draw_shots():
     for shot in shots:
         pygame.draw.rect(display, shot['color'], shot['rect'])
 
+
+
+#Colisão
+def collision_ship(ship_rect, boss_rect):
+    if ship_rect.colliderect(boss_rect):
+        pygame.QUIT()
+
+def collision_bullet():
+    global current_health
+    for shot in shots:
+        if shot['rect'].colliderect(boss_rect):
+            current_health -= 10
+            shots.remove(shot)
+#Health Bar
+def health_bar():
+    health_w = (current_health/ max_health) * health_bar_w
+    health_bar_rect = pygame.Rect(health_bar_x, health_bar_y, health_w, health_bar_h)
+    pygame.draw.rect(display, health_bar_color, health_bar_rect)
+    # pygame.draw.rect(display, "red", (200, 250, 100, 10))
+    # pygame.draw.rect(display, "green", (200, 250, max_health, 10))
+#Movimentação
 def move_player(keys, ship_rect):
     if keys[pygame.K_d]:
         ship_rect.x += 5
@@ -74,7 +96,9 @@ def player_shoot(keys, ship_rect):
 
 display = game_init(800,600)
 
+#Background
 background_img = pygame.image.load("Space.jpg")
+#Personagens
 ship = pygame.image.load("Nave.bmp")
 ship.set_colorkey((255,0,255))
 ship_rect = ship.get_rect()
@@ -85,14 +109,17 @@ ship_rect.y = 600-boss_rect.bottom
 ship_rect.x = 400
 boss_rect.y = 0
 boss_rect.x = 400
-#health bar
+#Barra de Vida
 max_health = 100
-health = 20
-ratio = health/max_health
-# pygame.draw.rect(display, "red", (250, 250, 300, 40))
-# pygame.draw.rect(display, "green", (250, 250, 300 * ratio, 40))
+current_health = 100
+health_bar_w = 200
+health_bar_h = 10
+health_bar_x = 0
+health_bar_y = 10
+health_bar_color = (0, 255, 0)
+#Disparos
 shots = []
-shot_speed = 5
+shot_speed = 8
 
 
 while True:
@@ -105,13 +132,17 @@ while True:
     player_shoot(keys, ship_rect)
     move_player(keys, ship_rect)
     move_boss(keys, boss_rect)
+
     
 
     display.blit(background_img, (0, 0))
     draw_player(ship, ship_rect, display)
     draw_boss(boss, boss_rect, display)
     update_shots()
-    draw_shots()
+    draw_shots()    
+    health_bar()
+    collision_ship(ship_rect, boss_rect)
+    collision_bullet()
     # pygame.draw.rect(display, "red", (250, 250, 300, 40))
     # pygame.draw.rect(display, "green", (250, 250, 300 * ratio, 40))
     pygame.display.flip()
