@@ -93,6 +93,8 @@ def move_player(keys, ship_rect):
         ship_rect.y -= 5
         if ship_rect.top < 0:
             ship_rect.top = 0
+        if ship_rect.top < 300:
+            ship_rect.top = 300
     if keys[pygame.K_s]:
         ship_rect.y +=5
         if ship_rect.bottom > 600:
@@ -114,7 +116,9 @@ def move_boss(keys, boss_rect):
     if keys[pygame.K_DOWN]:
         boss_rect.y +=5
         if boss_rect.bottom > 600:
-            boss_rect.bottom = 600          
+            boss_rect.bottom = 600
+        if boss_rect.bottom > 300:
+            boss_rect.bottom = 300              
 
 display = game_init(800,600)
 
