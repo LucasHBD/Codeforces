@@ -32,11 +32,27 @@ def draw_shots():
     for shot in shots:
         pygame.draw.rect(display, shot['color'], shot['rect'])
 
+def create_boss_shot(x, y):
+    bshot = {'rect': pygame.Rect(x, y, 10, 10), 'color': (255,0,0,0)}
+    shots.append(bshot)
+
+def update_boss_shots():
+    for bshot in boss_shots:
+        bshot['rect'].y -= boss_shot_speed
+
+def draw_boss_shots():
+    for bshot in boss_shots:
+        pygame.draw.rect(display, bshot['color'], bshot['rect'])
+
 
 
 #Colisão
 def collision_ship(ship_rect, boss_rect):
     if ship_rect.colliderect(boss_rect):
+        pygame.QUIT()
+
+def collision_boss(boss_rect, ship_rect):
+    if boss_rect.colliderect(ship_rect):
         pygame.QUIT()
 
 def collision_bullet():
@@ -45,13 +61,24 @@ def collision_bullet():
         if shot['rect'].colliderect(boss_rect):
             current_health -= 10
             shots.remove(shot)
+
+def collision_boss_bullet():
+    global current_health2
+    for bshot in boss_shots:
+        if bshot['rect'].colliderect(ship_rect):
+            current_health2 -= 10
+            boss_shots.remove(bshot)
 #Health Bar
 def health_bar():
     health_w = (current_health/ max_health) * health_bar_w
     health_bar_rect = pygame.Rect(health_bar_x, health_bar_y, health_w, health_bar_h)
     pygame.draw.rect(display, health_bar_color, health_bar_rect)
-    # pygame.draw.rect(display, "red", (200, 250, 100, 10))
-    # pygame.draw.rect(display, "green", (200, 250, max_health, 10))
+
+def health_bar2():
+    health_w2 = (current_health2/ max_health2) * health_bar_w2
+    health_bar_rect2 = pygame.Rect(health_bar_x2, health_bar_y2, health_w2, health_bar_h2)
+    pygame.draw.rect(display, health_bar_color2, health_bar_rect2)
+
 #Movimentação
 def move_player(keys, ship_rect):
     if keys[pygame.K_d]:
@@ -87,14 +114,7 @@ def move_boss(keys, boss_rect):
     if keys[pygame.K_DOWN]:
         boss_rect.y +=5
         if boss_rect.bottom > 600:
-            boss_rect.bottom = 600
-
-# def player_shoot(keys, ship_rect):
-#     if keys[pygame.K_f]:
-#         current_time = pygame.time.get_ticks()
-#         if current_time - last_shot_time > shot_cooldown:
-#             create_shot(ship_rect.x, ship_rect.y)
-#             last_shot_time = current_time            
+            boss_rect.bottom = 600          
 
 display = game_init(800,600)
 
@@ -119,9 +139,18 @@ health_bar_h = 10
 health_bar_x = 0
 health_bar_y = 10
 health_bar_color = (0, 255, 0)
+max_health2 = 100
+current_health2 = 100
+health_bar_w2 = 200
+health_bar_h2 = 10
+health_bar_x2 = 600
+health_bar_y2 = 580
+health_bar_color2 = (0, 255, 0)
 #Disparos
 shots = []
 shot_speed = 8
+boss_shots = []
+boss_shot_speed = 8
 shot_cooldown = 500
 last_shot_time = 0
 
@@ -136,7 +165,12 @@ while True:
         current_time = pygame.time.get_ticks()
         if current_time - last_shot_time > shot_cooldown:
             create_shot(ship_rect.x, ship_rect.y)
-            last_shot_time = current_time 
+            last_shot_time = current_time
+    if keys[pygame.K_RCTRL]:
+        current_time = pygame.time.get_ticks()
+        if current_time - last_shot_time > shot_cooldown:
+            create_boss_shot(boss_rect.x, boss_rect.y)
+            last_shot_time = current_time         
 
     # player_shoot(keys, ship_rect)
     move_player(keys, ship_rect)
@@ -148,11 +182,14 @@ while True:
     draw_player(ship, ship_rect, display)
     draw_boss(boss, boss_rect, display)
     update_shots()
-    draw_shots()    
+    draw_shots()
+    update_boss_shots()
+    draw_boss_shots()    
     health_bar()
+    health_bar2()
     collision_ship(ship_rect, boss_rect)
+    collision_boss(boss_rect, ship_rect)
     collision_bullet()
-    # pygame.draw.rect(display, "red", (250, 250, 300, 40))
-    # pygame.draw.rect(display, "green", (250, 250, 300 * ratio, 40))
+    collision_boss_bullet()
     pygame.display.flip()
     clock.tick(60)       
