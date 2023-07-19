@@ -22,6 +22,7 @@ def draw_boss(boss, boss_rect, display):
 def create_shot(x, y):
     shot = {'rect': pygame.Rect(x, y, 10, 10), 'color': (0, 255, 0, 0)}
     shots.append(shot)
+    sound1.play()
 
 def update_shots():
     for shot in shots:
@@ -30,10 +31,12 @@ def update_shots():
 def draw_shots():
     for shot in shots:
         pygame.draw.rect(display, shot['color'], shot['rect'])
+        
 
 def create_boss_shot(x, y):
     bshot = {'rect': pygame.Rect(x, y, 10, 10), 'color': (255, 0, 0, 0)}
     boss_shots.append(bshot)
+    sound1.play()
 
 def update_boss_shots():
     for bshot in boss_shots:
@@ -42,6 +45,7 @@ def update_boss_shots():
 def draw_boss_shots():
     for bshot in boss_shots:
         pygame.draw.rect(display, bshot['color'], bshot['rect'])
+        
 
 # Colisão
 def collision_ship(ship_rect, boss_rect):
@@ -60,6 +64,7 @@ def collision_bullet():
         if shot['rect'].colliderect(boss_rect):
             current_health -= 10
             shots.remove(shot)
+            sound2.play()
 
 def collision_boss_bullet():
     global current_health2
@@ -67,6 +72,7 @@ def collision_boss_bullet():
         if bshot['rect'].colliderect(ship_rect):
             current_health2 -= 10
             boss_shots.remove(bshot)
+            sound2.play()
 
 # Health Bar
 def health_bar():
@@ -157,6 +163,9 @@ boss_shots = []
 boss_shot_speed = 8
 shot_cooldown = 500
 last_shot_time = 0
+#Som
+sound1 = pygame.mixer.Sound("shoot.mp3")
+sound2 = pygame.mixer.Sound("hit.mp3")
 
 clock = pygame.time.Clock()
 while True:
