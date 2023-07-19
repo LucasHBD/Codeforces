@@ -1,6 +1,6 @@
 import sys
-import time
 import pygame
+from pygame import mixer
 
 def game_init(w, h):
     pygame.init()
@@ -166,6 +166,14 @@ last_shot_time = 0
 #Som
 sound1 = pygame.mixer.Sound("shoot.mp3")
 sound2 = pygame.mixer.Sound("hit.mp3")
+sound3 = pygame.mixer.Sound("win.mp3")
+mixer.music.load("bg_music.mp3")
+mixer.music.play(-1)
+#Fonte
+font = pygame.font.Font(None, 32)
+text_color = (0, 200, 200)
+
+game_state = "Jogando"
 
 clock = pygame.time.Clock()
 while True:
@@ -174,32 +182,76 @@ while True:
             pygame.quit()
             sys.exit()
     keys = pygame.key.get_pressed()
-    if keys[pygame.K_f]:
-        current_time = pygame.time.get_ticks()
-        if current_time - last_shot_time > shot_cooldown:
-            create_shot(ship_rect.x, ship_rect.y)
-            last_shot_time = current_time
-    if keys[pygame.K_RCTRL]:
-        current_time = pygame.time.get_ticks()
-        if current_time - last_shot_time > shot_cooldown:
-            create_boss_shot(boss_rect.x, boss_rect.y + boss_rect.height)
-            last_shot_time = current_time
+    if game_state == "Jogando":
+        if keys[pygame.K_f]:
+            current_time = pygame.time.get_ticks()
+            if current_time - last_shot_time > shot_cooldown:
+                create_shot(ship_rect.x, ship_rect.y)
+                last_shot_time = current_time
+        if keys[pygame.K_RCTRL]:
+            current_time = pygame.time.get_ticks()
+            if current_time - last_shot_time > shot_cooldown:
+                create_boss_shot(boss_rect.x, boss_rect.y + boss_rect.height)
+                last_shot_time = current_time
 
-    move_player(keys, ship_rect)
-    move_boss(keys, boss_rect)
+        move_player(keys, ship_rect)
+        move_boss(keys, boss_rect)
 
-    display.blit(background_img, (0, 0))
-    draw_player(ship, ship_rect, display)
-    draw_boss(boss, boss_rect, display)
-    update_shots()
-    draw_shots()
-    update_boss_shots()
-    draw_boss_shots()
-    health_bar()
-    health_bar2()
-    collision_ship(ship_rect, boss_rect)
-    collision_boss(boss_rect, ship_rect)
-    collision_bullet()
-    collision_boss_bullet()
+        display.blit(background_img, (0, 0))
+        draw_player(ship, ship_rect, display)
+        draw_boss(boss, boss_rect, display)
+        update_shots()
+        draw_shots()
+        update_boss_shots()
+        draw_boss_shots()
+        health_bar()
+        health_bar2()
+        collision_ship(ship_rect, boss_rect)
+        collision_boss(boss_rect, ship_rect)
+        collision_bullet()
+        collision_boss_bullet()
+        if current_health == 0:
+            game_state = "Vencedor 1"
+        elif current_health2 == 0:
+            game_state = "Vencedor 2"
+    elif game_state == "Vencedor 1":
+        display.blit(background_img, (0, 0))
+        text_win = font.render("Jogador 1 Venceu! Aperte [R] Para Reiniciar Ou [Q] Para Sair", True, text_color)
+        text_win_rect = text_win.get_rect()
+        text_win_rect.center = (display.get_width() // 2, display.get_height() // 2)
+        mixer.music.pause()
+        display.blit(text_win, text_win_rect)
+        # if keys[pygame.K_r]:
+        #     game_state = "Jogando"
+        #     current_health = 100
+        #     current_health2 = 100
+        #     ship_rect.y = 600 - boss_rect.bottom
+        #     ship_rect.x = 400
+        #     boss_rect.y = 0
+        #     boss_rect.x = 400
+        #     mixer.music.play(-1)
+        # if keys[pygame.K_q]:
+        #     pygame.quit()
+        #     sys.exit()            
+    elif game_state == "Vencedor 2":
+        display.blit(background_img, (0, 0))
+        text_win2 = font.render("Jogador 2 Venceu! Aperte [R] Para Reiniciar Ou [Q] Para Sair", True, text_color)
+        text_win_rect2 = text_win2.get_rect()
+        text_win_rect2.center = (display.get_width() // 2, display.get_height() // 2)
+        mixer.music.pause()
+        display.blit(text_win2, text_win_rect2)
+        # if keys[pygame.K_r]:
+        #     game_state = "Jogando"
+        #     current_health = 100
+        #     current_health2 = 100
+        #     ship_rect.y = 600 - boss_rect.bottom
+        #     ship_rect.x = 400
+        #     boss_rect.y = 0
+        #     boss_rect.x = 400
+        #     mixer.music.play(-1)
+        # if keys[pygame.K_q]:
+        #     pygame.quit()
+        #     sys.exit()
+        # display.blit(text_win, text_win_rect)
     pygame.display.flip()
     clock.tick(60)
