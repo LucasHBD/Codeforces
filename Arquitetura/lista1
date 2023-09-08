@@ -2,6 +2,34 @@
 main: .text
       
 main:
+#aula sexta
+.text
+
+main: addi $2 $0 5
+      syscall
+      add $8 $2 $0
+      addi $2 $0 5
+      syscall
+      add $9 $2 $0
+      
+      sub $10 $8 $9
+      not $11 $10
+      
+      srl $10 $10 31
+      srl $11 $11 31
+      
+      mul $12 $10 $8
+      mul $13 $11 $9
+      
+      add $4 $12 $13
+      
+      addi $2 $0 1
+      syscall
+      
+      addi $2 $0 10
+      syscall
+
+
 
 #14   
 
