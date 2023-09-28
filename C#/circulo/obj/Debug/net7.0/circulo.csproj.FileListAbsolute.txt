@@ -1,0 +1,14 @@
+C:\Users\Lucas\Desktop\Programação\C#\circulo\obj\Debug\net7.0\circulo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lucas\Desktop\Programação\C#\circulo\obj\Debug\net7.0\circulo.AssemblyInfoInputs.cache
+C:\Users\Lucas\Desktop\Programação\C#\circulo\obj\Debug\net7.0\circulo.AssemblyInfo.cs
+C:\Users\Lucas\Desktop\Programação\C#\circulo\obj\Debug\net7.0\circulo.csproj.CoreCompileInputs.cache
+C:\Users\Lucas\Desktop\Programação\C#\circulo\bin\Debug\net7.0\circulo.exe
+C:\Users\Lucas\Desktop\Programação\C#\circulo\bin\Debug\net7.0\circulo.deps.json
+C:\Users\Lucas\Desktop\Programação\C#\circulo\bin\Debug\net7.0\circulo.runtimeconfig.json
+C:\Users\Lucas\Desktop\Programação\C#\circulo\bin\Debug\net7.0\circulo.dll
+C:\Users\Lucas\Desktop\Programação\C#\circulo\bin\Debug\net7.0\circulo.pdb
+C:\Users\Lucas\Desktop\Programação\C#\circulo\obj\Debug\net7.0\circulo.dll
+C:\Users\Lucas\Desktop\Programação\C#\circulo\obj\Debug\net7.0\refint\circulo.dll
+C:\Users\Lucas\Desktop\Programação\C#\circulo\obj\Debug\net7.0\circulo.pdb
+C:\Users\Lucas\Desktop\Programação\C#\circulo\obj\Debug\net7.0\circulo.genruntimeconfig.cache
+C:\Users\Lucas\Desktop\Programação\C#\circulo\obj\Debug\net7.0\ref\circulo.dll
