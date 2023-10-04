@@ -2,10 +2,44 @@
 
 namespace veiculos{
     class Program{
-        static void Main(string[] args){
-            Veiculo v = new Veiculo("Onix", 116, 1085);
-            Console.WriteLine(v);
-        }
+     public static void Main() {
+    Veiculo[] vs = new Veiculo[3];
+    for (int i = 0; i < 3; i++) {
+      Console.WriteLine("Informe o nome do veículo");
+      string n = Console.ReadLine();
+      Console.WriteLine("Informe a potência em cv");
+      int p = int.Parse(Console.ReadLine());
+      Console.WriteLine("Informe o peso em kg");
+      double k = double.Parse(Console.ReadLine());
+      vs[i] = new Veiculo(n, p, k);
+    } 
+    Veiculo v = vs[0];
+    for (int i = 1; i < 3; i++) 
+      if (vs[i].PesoPotencia() < v.PesoPotencia()) v = vs[i];
+    Console.WriteLine(v.ToString());
+    Console.WriteLine(v.PesoPotencia());      
+  }
+  public static void Main2() {
+    Console.WriteLine("Informe o nome do veículo");
+    string n = Console.ReadLine();
+    Console.WriteLine("Informe a potência em cv");
+    int p = int.Parse(Console.ReadLine());
+    Console.WriteLine("Informe o peso em kg");
+    double k = double.Parse(Console.ReadLine());
+    Veiculo v = new Veiculo(n, p, k);
+    for (int i = 2; i <= 3; i++) {
+      Console.WriteLine("Informe o nome do veículo");
+      n = Console.ReadLine();
+      Console.WriteLine("Informe a potência em cv");
+      p = int.Parse(Console.ReadLine());
+      Console.WriteLine("Informe o peso em kg");
+      k = double.Parse(Console.ReadLine());
+      Veiculo w = new Veiculo(n, p, k);
+      if (w.PesoPotencia() < v.PesoPotencia()) v = w;
+    }
+    Console.WriteLine(v.ToString());
+    Console.WriteLine(v.PesoPotencia());
+  }
     }
     class Veiculo{
         private string nome;
