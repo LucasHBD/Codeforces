@@ -1,0 +1,16 @@
+C:\Users\20231014040004\Desktop\C#\veiculos\obj\Debug\net5.0\veiculos.csproj.AssemblyReference.cache
+C:\Users\20231014040004\Desktop\C#\veiculos\obj\Debug\net5.0\veiculos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\20231014040004\Desktop\C#\veiculos\obj\Debug\net5.0\veiculos.AssemblyInfoInputs.cache
+C:\Users\20231014040004\Desktop\C#\veiculos\obj\Debug\net5.0\veiculos.AssemblyInfo.cs
+C:\Users\20231014040004\Desktop\C#\veiculos\obj\Debug\net5.0\veiculos.csproj.CoreCompileInputs.cache
+C:\Users\20231014040004\Desktop\C#\veiculos\bin\Debug\net5.0\veiculos.exe
+C:\Users\20231014040004\Desktop\C#\veiculos\bin\Debug\net5.0\veiculos.deps.json
+C:\Users\20231014040004\Desktop\C#\veiculos\bin\Debug\net5.0\veiculos.runtimeconfig.json
+C:\Users\20231014040004\Desktop\C#\veiculos\bin\Debug\net5.0\veiculos.runtimeconfig.dev.json
+C:\Users\20231014040004\Desktop\C#\veiculos\bin\Debug\net5.0\veiculos.dll
+C:\Users\20231014040004\Desktop\C#\veiculos\bin\Debug\net5.0\ref\veiculos.dll
+C:\Users\20231014040004\Desktop\C#\veiculos\bin\Debug\net5.0\veiculos.pdb
+C:\Users\20231014040004\Desktop\C#\veiculos\obj\Debug\net5.0\veiculos.dll
+C:\Users\20231014040004\Desktop\C#\veiculos\obj\Debug\net5.0\ref\veiculos.dll
+C:\Users\20231014040004\Desktop\C#\veiculos\obj\Debug\net5.0\veiculos.pdb
+C:\Users\20231014040004\Desktop\C#\veiculos\obj\Debug\net5.0\veiculos.genruntimeconfig.cache
