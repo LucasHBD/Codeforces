@@ -1,0 +1,16 @@
+C:\Users\20231014040004\Desktop\C#\coordenadas\bin\Debug\net5.0\coordenadas.exe
+C:\Users\20231014040004\Desktop\C#\coordenadas\bin\Debug\net5.0\coordenadas.deps.json
+C:\Users\20231014040004\Desktop\C#\coordenadas\bin\Debug\net5.0\coordenadas.runtimeconfig.json
+C:\Users\20231014040004\Desktop\C#\coordenadas\bin\Debug\net5.0\coordenadas.runtimeconfig.dev.json
+C:\Users\20231014040004\Desktop\C#\coordenadas\bin\Debug\net5.0\coordenadas.dll
+C:\Users\20231014040004\Desktop\C#\coordenadas\bin\Debug\net5.0\ref\coordenadas.dll
+C:\Users\20231014040004\Desktop\C#\coordenadas\bin\Debug\net5.0\coordenadas.pdb
+C:\Users\20231014040004\Desktop\C#\coordenadas\obj\Debug\net5.0\coordenadas.csproj.AssemblyReference.cache
+C:\Users\20231014040004\Desktop\C#\coordenadas\obj\Debug\net5.0\coordenadas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\20231014040004\Desktop\C#\coordenadas\obj\Debug\net5.0\coordenadas.AssemblyInfoInputs.cache
+C:\Users\20231014040004\Desktop\C#\coordenadas\obj\Debug\net5.0\coordenadas.AssemblyInfo.cs
+C:\Users\20231014040004\Desktop\C#\coordenadas\obj\Debug\net5.0\coordenadas.csproj.CoreCompileInputs.cache
+C:\Users\20231014040004\Desktop\C#\coordenadas\obj\Debug\net5.0\coordenadas.dll
+C:\Users\20231014040004\Desktop\C#\coordenadas\obj\Debug\net5.0\ref\coordenadas.dll
+C:\Users\20231014040004\Desktop\C#\coordenadas\obj\Debug\net5.0\coordenadas.pdb
+C:\Users\20231014040004\Desktop\C#\coordenadas\obj\Debug\net5.0\coordenadas.genruntimeconfig.cache
