@@ -47,6 +47,35 @@ class ll_int{
             this ->first = this->first ->next;
             delete to_remove;
         }
+        void insert_at(int index, int value){
+            ll_int_node *new_node = new ll_int_node;
+            if(index == 0){
+                new_node -> next = first;
+                first = new_node;
+                return;
+            }
+            ll_int_node *current = first;
+            int current_index = 0;
+            while(current != nullptr && current_index < index - 1){
+                current = current ->next;
+                current_index++;
+            }
+            if(current == nullptr){
+                delete new_node;
+                return;
+            }
+            new_node ->next = current ->next;
+            current ->next = new_node;
+        } // Insere 'value' no índice 'index
+        int get_at(int index){
+
+        } // retorna o elemento do índice 'index'
+        void remove_at(int index){
+
+        } // remove o elemento do índice index
+        unsigned int size() {
+
+        } // retorna a quantidade de elementos da lista
         int sum(){
             int ans = 0;
             ll_int_node *current = this ->first;
@@ -68,6 +97,15 @@ class ll_int{
             }
             else return -1;
         }
+        int count(int value){
+
+        } // conta quantas vezes 'value' ocore na lista
+        int max(){
+
+        } // retorna o maior elemento da lista
+        int min(){
+
+        } // retorna o menor elemento da lista
         ~ll_int(){
             ll_int_node *current, *to_remove;
             current = this ->first;
@@ -78,7 +116,6 @@ class ll_int{
             }
         }
     };
-
 int main(){
     ll_int *lista1 = new ll_int;
     for(int i = 1; i<=10; i++){
