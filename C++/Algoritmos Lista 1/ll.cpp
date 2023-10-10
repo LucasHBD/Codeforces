@@ -49,9 +49,14 @@ class ll_int{
         }
         void insert_at(int index, int value){
             ll_int_node *new_node = new ll_int_node;
+            new_node ->value = value;
+            new_node -> next = nullptr;
             if(index == 0){
                 new_node -> next = first;
                 first = new_node;
+                if(last == nullptr){
+                    last = new_node;
+                }
                 return;
             }
             ll_int_node *current = first;
@@ -62,13 +67,26 @@ class ll_int{
             }
             if(current == nullptr){
                 delete new_node;
-                return;
+                return; 
             }
             new_node ->next = current ->next;
             current ->next = new_node;
         } // Insere 'value' no índice 'index
         int get_at(int index){
+            if(index < 0){
+                return -1;
+            }
+            ll_int_node *current = first;
+            int current_index = 0;
 
+            while(current != nullptr && current_index < index){
+                current = current ->next;
+                current_index++;
+            }
+            if(current == nullptr){
+                return -1;
+            }
+        return current ->value;
         } // retorna o elemento do índice 'index'
         void remove_at(int index){
 
@@ -122,6 +140,10 @@ int main(){
         lista1 ->push_front(i);
     }
     cout << "Sum = " << lista1 ->sum() << endl;
+    lista1 ->insert_at(2, 23);
+    cout << "Elemento do Indice 3: " << lista1 ->get_at(3) << endl;
+    cout << "Elemento do Indice 4: " << lista1 ->get_at(4) << endl;
+    cout << "Elemento do Indice 5: " << lista1 ->get_at(5) << endl;
     cout << "lista1 = {";
     for(int i = 0; i<10; i++){
         cout << lista1 ->front() << " ";
