@@ -1,0 +1,16 @@
+C:\Users\20231014040004\Desktop\corrigida\obj\Debug\net5.0\corrigida.csproj.AssemblyReference.cache
+C:\Users\20231014040004\Desktop\corrigida\obj\Debug\net5.0\corrigida.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\20231014040004\Desktop\corrigida\obj\Debug\net5.0\corrigida.AssemblyInfoInputs.cache
+C:\Users\20231014040004\Desktop\corrigida\obj\Debug\net5.0\corrigida.AssemblyInfo.cs
+C:\Users\20231014040004\Desktop\corrigida\obj\Debug\net5.0\corrigida.csproj.CoreCompileInputs.cache
+C:\Users\20231014040004\Desktop\corrigida\bin\Debug\net5.0\corrigida.exe
+C:\Users\20231014040004\Desktop\corrigida\bin\Debug\net5.0\corrigida.deps.json
+C:\Users\20231014040004\Desktop\corrigida\bin\Debug\net5.0\corrigida.runtimeconfig.json
+C:\Users\20231014040004\Desktop\corrigida\bin\Debug\net5.0\corrigida.runtimeconfig.dev.json
+C:\Users\20231014040004\Desktop\corrigida\bin\Debug\net5.0\corrigida.dll
+C:\Users\20231014040004\Desktop\corrigida\bin\Debug\net5.0\ref\corrigida.dll
+C:\Users\20231014040004\Desktop\corrigida\bin\Debug\net5.0\corrigida.pdb
+C:\Users\20231014040004\Desktop\corrigida\obj\Debug\net5.0\corrigida.dll
+C:\Users\20231014040004\Desktop\corrigida\obj\Debug\net5.0\ref\corrigida.dll
+C:\Users\20231014040004\Desktop\corrigida\obj\Debug\net5.0\corrigida.pdb
+C:\Users\20231014040004\Desktop\corrigida\obj\Debug\net5.0\corrigida.genruntimeconfig.cache
