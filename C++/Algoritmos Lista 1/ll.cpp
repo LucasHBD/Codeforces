@@ -89,7 +89,25 @@ class ll_int{
         return current ->value;
         } // retorna o elemento do índice 'index'
         void remove_at(int index){
+            if(index < 0){
+                return;
+            }
+            ll_int_node *to_remove = nullptr;
+            ll_int_node *current = first;
+            int current_index = 0;
 
+            while(current != nullptr && current_index < index){
+                current = current ->next;
+                current_index++;
+            }
+            if(first == nullptr && last == nullptr){
+                return;
+            }
+            if(current_index == index){
+                to_remove = current;
+                current = current ->next;
+                delete to_remove;
+            }
         } // remove o elemento do índice index
         unsigned int size() {
 
@@ -144,12 +162,17 @@ int main(){
     cout << "Elemento do Indice 3: " << lista1 ->get_at(3) << endl;
     cout << "Elemento do Indice 4: " << lista1 ->get_at(4) << endl;
     cout << "Elemento do Indice 5: " << lista1 ->get_at(5) << endl;
-    cout << "lista1 = {";
-    for(int i = 0; i<10; i++){
+    // cout << "lista1 = {";
+    // for(int i = 0; i<10; i++){
+    //     cout << lista1 ->front() << " ";
+    //     lista1 ->pop_front();
+    // }
+    // cout << "}" << endl;
+    lista1 ->remove_at(2);
+     for(int i = 0; i<10; i++){
         cout << lista1 ->front() << " ";
         lista1 ->pop_front();
     }
-    cout << "}" << endl;
     delete lista1;
     return 0;
 }
