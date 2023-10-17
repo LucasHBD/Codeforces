@@ -89,25 +89,25 @@ class ll_int{
         return current ->value;
         } // retorna o elemento do índice 'index'
         void remove_at(int index){
-            if(index < 0){
+            if(index <0) return;
+            if(index == 0){
+                ll_int_node *to_remove = first;
+                first = first ->next;
+                delete to_remove;
                 return;
             }
-            ll_int_node *to_remove = nullptr;
             ll_int_node *current = first;
             int current_index = 0;
 
-            while(current != nullptr && current_index < index){
+            while(current != nullptr && current_index < index -1){
                 current = current ->next;
                 current_index++;
             }
-            if(first == nullptr && last == nullptr){
-                return;
-            }
-            if(current_index == index){
-                to_remove = current;
-                current = current ->next;
-                delete to_remove;
-            }
+            if(current == nullptr || current->next == nullptr) return;
+            ll_int_node *to_remove = current ->next;
+            current ->next = to_remove ->next;
+            delete to_remove;
+
         } // remove o elemento do índice index
         unsigned int size() {
 
@@ -134,7 +134,13 @@ class ll_int{
             else return -1;
         }
         int count(int value){
-
+            // int qtd = 0;
+            // ll_int_node *current = this ->first;
+            // while(current != nullptr){
+            //     current = current ->next;
+            //     if()
+            // }
+            // return qtd;
         } // conta quantas vezes 'value' ocore na lista
         int max(){
 
@@ -162,17 +168,13 @@ int main(){
     cout << "Elemento do Indice 3: " << lista1 ->get_at(3) << endl;
     cout << "Elemento do Indice 4: " << lista1 ->get_at(4) << endl;
     cout << "Elemento do Indice 5: " << lista1 ->get_at(5) << endl;
-    // cout << "lista1 = {";
-    // for(int i = 0; i<10; i++){
-    //     cout << lista1 ->front() << " ";
-    //     lista1 ->pop_front();
-    // }
-    // cout << "}" << endl;
     lista1 ->remove_at(2);
-     for(int i = 0; i<10; i++){
+    cout << "lista1 = {";
+    for(int i = 0; i<10; i++){
         cout << lista1 ->front() << " ";
         lista1 ->pop_front();
     }
+    cout << "}" << endl;
     delete lista1;
     return 0;
 }
