@@ -134,13 +134,16 @@ class ll_int{
             else return -1;
         }
         int count(int value){
-            // int qtd = 0;
-            // ll_int_node *current = this ->first;
-            // while(current != nullptr){
-            //     current = current ->next;
-            //     if()
-            // }
-            // return qtd;
+            int qtd = 0;
+            ll_int_node *current = first;
+            while(current != 0){
+                current = current ->next;
+                if(value == true){
+                    current = current ->next;
+                    qtd++;
+                }
+            }
+            return qtd;
         } // conta quantas vezes 'value' ocore na lista
         int max(){
 
@@ -165,16 +168,19 @@ int main(){
     }
     cout << "Sum = " << lista1 ->sum() << endl;
     lista1 ->insert_at(2, 23);
+    lista1 ->insert_at(3, 23);
+    lista1 ->insert_at(4, 23);
     cout << "Elemento do Indice 3: " << lista1 ->get_at(3) << endl;
     cout << "Elemento do Indice 4: " << lista1 ->get_at(4) << endl;
-    cout << "Elemento do Indice 5: " << lista1 ->get_at(5) << endl;
+    cout << "Elemento do Indice 5: " << lista1 ->get_at(2) << endl;
     lista1 ->remove_at(2);
     cout << "lista1 = {";
-    for(int i = 0; i<10; i++){
+    for(int i = 0; i<12; i++){
         cout << lista1 ->front() << " ";
         lista1 ->pop_front();
     }
     cout << "}" << endl;
+    cout << lista1 ->count(23) << endl;
     delete lista1;
     return 0;
 }
