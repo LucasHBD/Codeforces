@@ -137,11 +137,10 @@ class ll_int{
             int qtd = 0;
             ll_int_node *current = first;
             while(current != 0){
-                current = current ->next;
-                if(value == true){
-                    current = current ->next;
+                if(current ->value == value){
                     qtd++;
                 }
+                current = current ->next;
             }
             return qtd;
         } // conta quantas vezes 'value' ocore na lista
@@ -168,19 +167,18 @@ int main(){
     }
     cout << "Sum = " << lista1 ->sum() << endl;
     lista1 ->insert_at(2, 23);
-    lista1 ->insert_at(3, 23);
-    lista1 ->insert_at(4, 23);
+    lista1 ->insert_at(0, 23);
     cout << "Elemento do Indice 3: " << lista1 ->get_at(3) << endl;
     cout << "Elemento do Indice 4: " << lista1 ->get_at(4) << endl;
     cout << "Elemento do Indice 5: " << lista1 ->get_at(2) << endl;
-    lista1 ->remove_at(2);
+    //lista1 ->remove_at(0);
+    cout << lista1 ->count(23) << endl;
     cout << "lista1 = {";
     for(int i = 0; i<12; i++){
         cout << lista1 ->front() << " ";
         lista1 ->pop_front();
     }
     cout << "}" << endl;
-    cout << lista1 ->count(23) << endl;
     delete lista1;
     return 0;
 }
