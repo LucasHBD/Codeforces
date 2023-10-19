@@ -110,7 +110,14 @@ class ll_int{
 
         } // remove o elemento do índice index
         unsigned int size() {
-
+            if(first == nullptr && last == nullptr) return -1;
+            int qtd = 0;
+            ll_int_node *current = this ->first;
+            while(current != 0){
+                qtd++;
+                current = current ->next;
+            }
+            return qtd;
         } // retorna a quantidade de elementos da lista
         int sum(){
             int ans = 0;
@@ -145,9 +152,28 @@ class ll_int{
             return qtd;
         } // conta quantas vezes 'value' ocore na lista
         int max(){
-
+            if(first == nullptr && last == nullptr) return -1;
+            ll_int_node *current = first;
+            int maior = current ->value;
+            while(current != 0){
+                if(current ->value > maior){
+                    maior = current ->value;
+                }
+                current = current ->next;
+            }
+            return maior;
         } // retorna o maior elemento da lista
         int min(){
+            if(first == nullptr && last == nullptr) return -1;
+            ll_int_node *current = first;
+            int menor = current ->value;
+            while(current != 0){
+                if(current ->value < menor){
+                    menor = current ->value;
+                }
+                current = current ->next;
+            }
+            return menor;
 
         } // retorna o menor elemento da lista
         ~ll_int(){
@@ -167,12 +193,15 @@ int main(){
     }
     cout << "Sum = " << lista1 ->sum() << endl;
     lista1 ->insert_at(2, 23);
-    lista1 ->insert_at(0, 23);
+    lista1 ->insert_at(0, 30);
     cout << "Elemento do Indice 3: " << lista1 ->get_at(3) << endl;
     cout << "Elemento do Indice 4: " << lista1 ->get_at(4) << endl;
     cout << "Elemento do Indice 5: " << lista1 ->get_at(2) << endl;
-    //lista1 ->remove_at(0);
+    lista1 ->remove_at(0);
     cout << lista1 ->count(23) << endl;
+    cout << "O maior valor da lista: " << lista1 ->max() << endl;
+    cout << "O menor valor da lista: " << lista1 ->min() << endl;
+    cout << "O Tamanho da Lista: " << lista1 ->size() << endl;
     cout << "lista1 = {";
     for(int i = 0; i<12; i++){
         cout << lista1 ->front() << " ";
