@@ -15,7 +15,7 @@ class ll_int{
             this ->first = 0;
             this -> last = 0;
         }
-        void push_front(int value){
+        void push_front(int value){ // O(1)
             ll_int_node *new_node = new ll_int_node;
             new_node -> value = value;
             new_node -> next = this->first;
@@ -24,7 +24,7 @@ class ll_int{
                 this->last = new_node;
             }
         }
-        void push_back(int value){
+        void push_back(int value){ // O(1)
             ll_int_node *new_node = new ll_int_node;
             new_node ->value = value;
             new_node ->next = 0;
@@ -36,7 +36,7 @@ class ll_int{
             }
             this ->last = new_node;
         }
-        void pop_front(){
+        void pop_front(){ // O(1)
             if(this ->first == 0){
                 return;
             }
@@ -47,7 +47,7 @@ class ll_int{
             this ->first = this->first ->next;
             delete to_remove;
         }
-        void insert_at(int index, int value){
+        void insert_at(int index, int value){ // O(n)
             ll_int_node *new_node = new ll_int_node;
             new_node ->value = value;
             new_node -> next = nullptr;
@@ -72,7 +72,7 @@ class ll_int{
             new_node ->next = current ->next;
             current ->next = new_node;
         } // Insere 'value' no índice 'index
-        int get_at(int index){
+        int get_at(int index){ // O(n)
             if(index < 0){
                 return -1;
             }
@@ -88,7 +88,7 @@ class ll_int{
             }
         return current ->value;
         } // retorna o elemento do índice 'index'
-        void remove_at(int index){
+        void remove_at(int index){ //O(n)
             if(index <0) return;
             if(index == 0){
                 ll_int_node *to_remove = first;
@@ -109,7 +109,7 @@ class ll_int{
             delete to_remove;
 
         } // remove o elemento do índice index
-        unsigned int size() {
+        unsigned int size(){ // O(n)
             if(first == nullptr && last == nullptr) return -1;
             int qtd = 0;
             ll_int_node *current = this ->first;
@@ -119,7 +119,7 @@ class ll_int{
             }
             return qtd;
         } // retorna a quantidade de elementos da lista
-        int sum(){
+        int sum(){ // O(n)
             int ans = 0;
             ll_int_node *current = this ->first;
             while(current != 0){
@@ -128,19 +128,19 @@ class ll_int{
             }
             return ans;
         }
-        int front(){
+        int front(){ // O(1)
             if(this ->first != 0){
                 return this ->first ->value;
             }
             else return -1;
         }
-        int back(){
+        int back(){ // O(1)
             if(this ->last != 0){
                 return this ->last ->value;
             }
             else return -1;
         }
-        int count(int value){
+        int count(int value){ // O(n)
             int qtd = 0;
             ll_int_node *current = first;
             while(current != 0){
@@ -151,7 +151,7 @@ class ll_int{
             }
             return qtd;
         } // conta quantas vezes 'value' ocore na lista
-        int max(){
+        int max(){ // O(n)
             if(first == nullptr && last == nullptr) return -1;
             ll_int_node *current = first;
             int maior = current ->value;
@@ -163,7 +163,7 @@ class ll_int{
             }
             return maior;
         } // retorna o maior elemento da lista
-        int min(){
+        int min(){ // O(n)
             if(first == nullptr && last == nullptr) return -1;
             ll_int_node *current = first;
             int menor = current ->value;
