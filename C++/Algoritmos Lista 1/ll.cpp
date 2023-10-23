@@ -203,7 +203,7 @@ int main(){
     cout << "O menor valor da lista: " << lista1 ->min() << endl;
     cout << "O Tamanho da Lista: " << lista1 ->size() << endl;
     cout << "lista1 = {";
-    for(int i = 0; i<12; i++){
+    for(int i = 0; i<11; i++){
         cout << lista1 ->front() << " ";
         lista1 ->pop_front();
     }
