@@ -108,7 +108,9 @@ int main(){
     for(int i = 0; i<10; i++) lista1 ->push_front(i);
     lista1 ->insert_at(2, 25);
     lista1 ->remove_at(0);
-    lista1 ->get_at(6);
+    cout << lista1 ->get_at(6) << endl;
+    cout << lista1 ->capacity() << endl;
+    cout << lista1 ->size() << endl;
     for(int i = 0; i<10; i++){
         cout << lista1->front() << " ";
         lista1 ->pop_front();
