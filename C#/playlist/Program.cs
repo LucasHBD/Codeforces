@@ -55,12 +55,18 @@ namespace playlist{
         }
     }
     
-    class Musica{
+    class Musica : IComparable{
         public string Titulo {get; set;}
         public string Artista {get; set;}
         public string Album {get; set;}
         public DateTime DataInclusao {get; set;}
         public TimeSpan Duracao {get; set;}
+        public int CompareTo(object obj){
+            Musica m = (Musica) obj;
+            if(this.Titulo == m.Titulo) return 0;
+            if(this.Titulo < m.Titulo) return -1;
+            if(this.Titulo > m.Titulo) return 1;
+        }
         public override string ToString(){
             return $"{Titulo}\n{Artista}\n{Album}\n{DataInclusao:dd/MM/yyyy}\n{Duracao}\n";
         }
