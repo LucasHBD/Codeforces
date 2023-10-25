@@ -1,0 +1,16 @@
+C:\Users\20231014040004\Desktop\C#\playlist\obj\Debug\net5.0\playlist.csproj.AssemblyReference.cache
+C:\Users\20231014040004\Desktop\C#\playlist\obj\Debug\net5.0\playlist.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\20231014040004\Desktop\C#\playlist\obj\Debug\net5.0\playlist.AssemblyInfoInputs.cache
+C:\Users\20231014040004\Desktop\C#\playlist\obj\Debug\net5.0\playlist.AssemblyInfo.cs
+C:\Users\20231014040004\Desktop\C#\playlist\obj\Debug\net5.0\playlist.csproj.CoreCompileInputs.cache
+C:\Users\20231014040004\Desktop\C#\playlist\bin\Debug\net5.0\playlist.exe
+C:\Users\20231014040004\Desktop\C#\playlist\bin\Debug\net5.0\playlist.deps.json
+C:\Users\20231014040004\Desktop\C#\playlist\bin\Debug\net5.0\playlist.runtimeconfig.json
+C:\Users\20231014040004\Desktop\C#\playlist\bin\Debug\net5.0\playlist.runtimeconfig.dev.json
+C:\Users\20231014040004\Desktop\C#\playlist\bin\Debug\net5.0\playlist.dll
+C:\Users\20231014040004\Desktop\C#\playlist\bin\Debug\net5.0\ref\playlist.dll
+C:\Users\20231014040004\Desktop\C#\playlist\bin\Debug\net5.0\playlist.pdb
+C:\Users\20231014040004\Desktop\C#\playlist\obj\Debug\net5.0\playlist.dll
+C:\Users\20231014040004\Desktop\C#\playlist\obj\Debug\net5.0\ref\playlist.dll
+C:\Users\20231014040004\Desktop\C#\playlist\obj\Debug\net5.0\playlist.pdb
+C:\Users\20231014040004\Desktop\C#\playlist\obj\Debug\net5.0\playlist.genruntimeconfig.cache
