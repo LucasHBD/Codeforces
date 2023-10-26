@@ -13,7 +13,7 @@ namespace playlist{
             Musica h = new Musica {Titulo = "Mama", Artista = "My Chemical Romance", Album = "The Black Parade", DataInclusao = DateTime.Now, Duracao = new TimeSpan(0, 0, 4, 40)};
             Musica i = new Musica {Titulo = "Save Me", Artista = "Avenged Sevenfold", Album = "Nightmare", DataInclusao = DateTime.Now, Duracao = new TimeSpan(0, 0, 10, 55)};
             Musica j = new Musica {Titulo = "Tender Surrender", Artista = "Steve Vai", Album = "The Seventh Song", DataInclusao = DateTime.Now, Duracao = new TimeSpan(0, 0, 5, 02)};
-            PlayList p = new PlayList("Rock");
+            PlayList p = new PlayList("Rock/Metal");
             p.Inserir(a);
             p.Inserir(b);
             p.Inserir(c);
