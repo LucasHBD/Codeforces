@@ -1,0 +1,16 @@
+C:\Users\20231014040004\Desktop\Programa-o\C#\ipessoas\obj\Debug\net5.0\ipessoas.csproj.AssemblyReference.cache
+C:\Users\20231014040004\Desktop\Programa-o\C#\ipessoas\obj\Debug\net5.0\ipessoas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\20231014040004\Desktop\Programa-o\C#\ipessoas\obj\Debug\net5.0\ipessoas.AssemblyInfoInputs.cache
+C:\Users\20231014040004\Desktop\Programa-o\C#\ipessoas\obj\Debug\net5.0\ipessoas.AssemblyInfo.cs
+C:\Users\20231014040004\Desktop\Programa-o\C#\ipessoas\obj\Debug\net5.0\ipessoas.csproj.CoreCompileInputs.cache
+C:\Users\20231014040004\Desktop\Programa-o\C#\ipessoas\bin\Debug\net5.0\ipessoas.exe
+C:\Users\20231014040004\Desktop\Programa-o\C#\ipessoas\bin\Debug\net5.0\ipessoas.deps.json
+C:\Users\20231014040004\Desktop\Programa-o\C#\ipessoas\bin\Debug\net5.0\ipessoas.runtimeconfig.json
+C:\Users\20231014040004\Desktop\Programa-o\C#\ipessoas\bin\Debug\net5.0\ipessoas.runtimeconfig.dev.json
+C:\Users\20231014040004\Desktop\Programa-o\C#\ipessoas\bin\Debug\net5.0\ipessoas.dll
+C:\Users\20231014040004\Desktop\Programa-o\C#\ipessoas\bin\Debug\net5.0\ref\ipessoas.dll
+C:\Users\20231014040004\Desktop\Programa-o\C#\ipessoas\bin\Debug\net5.0\ipessoas.pdb
+C:\Users\20231014040004\Desktop\Programa-o\C#\ipessoas\obj\Debug\net5.0\ipessoas.dll
+C:\Users\20231014040004\Desktop\Programa-o\C#\ipessoas\obj\Debug\net5.0\ref\ipessoas.dll
+C:\Users\20231014040004\Desktop\Programa-o\C#\ipessoas\obj\Debug\net5.0\ipessoas.pdb
+C:\Users\20231014040004\Desktop\Programa-o\C#\ipessoas\obj\Debug\net5.0\ipessoas.genruntimeconfig.cache
