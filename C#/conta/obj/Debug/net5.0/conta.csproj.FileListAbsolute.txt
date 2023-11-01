@@ -1,0 +1,16 @@
+C:\Users\20231014040004\Desktop\Programa-o\C#\conta\obj\Debug\net5.0\conta.csproj.AssemblyReference.cache
+C:\Users\20231014040004\Desktop\Programa-o\C#\conta\obj\Debug\net5.0\conta.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\20231014040004\Desktop\Programa-o\C#\conta\obj\Debug\net5.0\conta.AssemblyInfoInputs.cache
+C:\Users\20231014040004\Desktop\Programa-o\C#\conta\obj\Debug\net5.0\conta.AssemblyInfo.cs
+C:\Users\20231014040004\Desktop\Programa-o\C#\conta\obj\Debug\net5.0\conta.csproj.CoreCompileInputs.cache
+C:\Users\20231014040004\Desktop\Programa-o\C#\conta\bin\Debug\net5.0\conta.exe
+C:\Users\20231014040004\Desktop\Programa-o\C#\conta\bin\Debug\net5.0\conta.deps.json
+C:\Users\20231014040004\Desktop\Programa-o\C#\conta\bin\Debug\net5.0\conta.runtimeconfig.json
+C:\Users\20231014040004\Desktop\Programa-o\C#\conta\bin\Debug\net5.0\conta.runtimeconfig.dev.json
+C:\Users\20231014040004\Desktop\Programa-o\C#\conta\bin\Debug\net5.0\conta.dll
+C:\Users\20231014040004\Desktop\Programa-o\C#\conta\bin\Debug\net5.0\ref\conta.dll
+C:\Users\20231014040004\Desktop\Programa-o\C#\conta\bin\Debug\net5.0\conta.pdb
+C:\Users\20231014040004\Desktop\Programa-o\C#\conta\obj\Debug\net5.0\conta.dll
+C:\Users\20231014040004\Desktop\Programa-o\C#\conta\obj\Debug\net5.0\ref\conta.dll
+C:\Users\20231014040004\Desktop\Programa-o\C#\conta\obj\Debug\net5.0\conta.pdb
+C:\Users\20231014040004\Desktop\Programa-o\C#\conta\obj\Debug\net5.0\conta.genruntimeconfig.cache
