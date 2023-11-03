@@ -8,12 +8,12 @@ private:
     unsigned int x, size_, capacity_;
     void increase_capacity() {
         if(size_ == capacity_){
-            int *new_array = new int[capacity_ + capacity_];
+            int *new_array = new int[capacity_ *2];
             for(int i = 0; i<size_; ++i){new_array[i] = data[i];}
             int *old_array = data;
             data = new_array;
             delete[] old_array;
-            capacity_ = capacity_ + capacity_;
+            capacity_ = capacity_ *2;
         }
         data[size_];
     }
@@ -32,7 +32,9 @@ public:
     unsigned int capacity() {
         return this->capacity_;
     }
-    double percent_occupied() {}
+    double percent_occupied() {
+        return double(size_)/capacity_;
+    }
     bool insert_at(unsigned int index, int value) {
         if(index >= size_)return false;
         if(size_ == capacity_) increase_capacity();
@@ -51,10 +53,13 @@ public:
         return true; // Removeu
     }
     int get_at(unsigned int index) {
-        // TODO: Check if index is valid
+        if(index >= this ->size_) return -1;// TODO: Check if index is valid
         return this->data[index];
     }
-    void clear() {}
+    void clear() {
+        this ->size_ = 0;
+        return; 
+    }
     void push_back(int value) {
         if (this->size_ == this->capacity_)
             increase_capacity();
@@ -64,7 +69,15 @@ public:
         if(this ->size_ == this ->capacity_) increase_capacity();
         this ->data[size_--] = value;
     }
-    bool pop_back() {}
+    bool pop_back() {
+        if(size_ == 0) return false;
+        int *new_data = new int[size_ -1];
+        for(int i = 0; i<size_ -1; ++i){new_data[i] = data[i];}
+        delete[] data;
+        data = new_data;
+        size_--;
+        return true;
+    }
     bool pop_front() {
         if(size_ == 0) return false;
         int *new_data = new int[size_ -1];
@@ -78,11 +91,42 @@ public:
         if(size_ == 0) return -1;
         return data[0];
     }
-    int back(){}
-    bool remove(int value) {}
-    int find(int value) {}
-    int count(int value) {}
-    int sum() {}
+    int back(){
+        if(size_ == 0) return -1;
+        return data[-1];
+    }
+    bool remove(int value){
+        bool is_removed = false;
+        for(int i = 0; i<size_;i++){
+            if(data[i] == value){
+                remove_at(i);
+                is_removed = true;
+            }
+        }
+        return is_removed;
+    }
+    int find(int value) {
+        for(int i = 0; i<size_;i++){
+            if(data[i] == value) return i;
+        }
+        return -1;
+    }
+    int count(int value) {
+        int qtd =0;
+        for(int i = 0; i<size_;i++){
+            if(data[i] == value){
+                qtd++;
+            }
+        }    
+        return qtd;
+    }
+    int sum() {
+        int qtd =0;
+        for(int i =0; i<size_; i++){
+            qtd += data[i];
+        }
+        return qtd;
+    }
 };
 
 int main(){
@@ -94,21 +138,15 @@ int main(){
     lista1 ->push_back(12);
     lista1 ->push_back(13);
     lista1 ->push_back(14);
+    lista1 ->push_back(2);
     lista1 ->insert_at(10, 45);
     lista1 ->push_back(15);
-    // cout << "Sum = " << lista1 ->sum() << endl;
-    // lista1 ->insert_at(2, 23);
-    // lista1 ->insert_at(0, 30);
-    // cout << "Elemento do Indice 3: " << lista1 ->get_at(3) << endl;
-    // cout << "Elemento do Indice 4: " << lista1 ->get_at(4) << endl;
-    // cout << "Elemento do Indice 5: " << lista1 ->get_at(2) << endl;
-    // lista1 ->remove_at(0);
-    // cout << lista1 ->count(23) << endl;
-    // cout << "O maior valor da lista: " << lista1 ->max() << endl;
-    // cout << "O menor valor da lista: " << lista1 ->min() << endl;
-    // cout << "O Tamanho da Lista: " << lista1 ->size() << endl;
+    cout << lista1 ->find(10) << endl;
+    cout << lista1 ->count(2) << endl;
+    cout << lista1 ->sum() << endl;
+    cout << lista1 ->percent_occupied() << endl;
     cout << "lista1 = {";
-    for(int i = 0; i<16; i++){
+    for(int i = 0; i<17; i++){
         cout << lista1-> front()<< " ";
         lista1 ->pop_front();
     }
