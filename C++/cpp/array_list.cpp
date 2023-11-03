@@ -26,16 +26,16 @@ public:
     ~array_list() {
         delete[] data;
     }
-    unsigned int size() {
+    unsigned int size() { //O(1)
         return this->size_;
     }
-    unsigned int capacity() {
+    unsigned int capacity() { //O(1)
         return this->capacity_;
     }
-    double percent_occupied() {
+    double percent_occupied() { //O(1)
         return double(size_)/capacity_;
     }
-    bool insert_at(unsigned int index, int value) {
+    bool insert_at(unsigned int index, int value) { // O(n)
         if(index >= size_)return false;
         if(size_ == capacity_) increase_capacity();
         for(int i = size_; i> index; i--) this ->data[i] = this ->data[i -1];
@@ -43,7 +43,7 @@ public:
         this ->size_++;
         return true;
     }
-    bool remove_at(unsigned int index) {
+    bool remove_at(unsigned int index) { // O(n)
         if (index >= this->size_)
             return false; // Não removeu
         for (int i = index + 1; i < this->size_; ++i) {
@@ -52,24 +52,24 @@ public:
         this->size_--;
         return true; // Removeu
     }
-    int get_at(unsigned int index) {
+    int get_at(unsigned int index) { // O(1)
         if(index >= this ->size_) return -1;// TODO: Check if index is valid
         return this->data[index];
     }
-    void clear() {
+    void clear() { //O(1)
         this ->size_ = 0;
         return; 
     }
-    void push_back(int value) {
+    void push_back(int value) { // O(1)
         if (this->size_ == this->capacity_)
             increase_capacity();
         this->data[size_++] = value;
     }
-    void push_front(int value) {
+    void push_front(int value) { // O(1)
         if(this ->size_ == this ->capacity_) increase_capacity();
         this ->data[size_--] = value;
     }
-    bool pop_back() {
+    bool pop_back() { // O(1)
         if(size_ == 0) return false;
         int *new_data = new int[size_ -1];
         for(int i = 0; i<size_ -1; ++i){new_data[i] = data[i];}
@@ -78,7 +78,7 @@ public:
         size_--;
         return true;
     }
-    bool pop_front() {
+    bool pop_front() { // O(1)
         if(size_ == 0) return false;
         int *new_data = new int[size_ -1];
         for(int i = 1; i<size_; ++i){new_data[i-1] = data[i];}
@@ -87,15 +87,15 @@ public:
         size_--;
         return true; 
     }
-    int front(){
+    int front(){ // O(1)
         if(size_ == 0) return -1;
         return data[0];
     }
-    int back(){
+    int back(){ // O(!)
         if(size_ == 0) return -1;
         return data[-1];
     }
-    bool remove(int value){
+    bool remove(int value){ // O(n)
         bool is_removed = false;
         for(int i = 0; i<size_;i++){
             if(data[i] == value){
@@ -105,13 +105,13 @@ public:
         }
         return is_removed;
     }
-    int find(int value) {
+    int find(int value) { // O(n)
         for(int i = 0; i<size_;i++){
             if(data[i] == value) return i;
         }
         return -1;
     }
-    int count(int value) {
+    int count(int value) { // O(n)
         int qtd =0;
         for(int i = 0; i<size_;i++){
             if(data[i] == value){
@@ -120,7 +120,7 @@ public:
         }    
         return qtd;
     }
-    int sum() {
+    int sum() { // O(n)
         int qtd =0;
         for(int i =0; i<size_; i++){
             qtd += data[i];
