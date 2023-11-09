@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\20231014040004\\Programa-o\\C#\\disciplina\\disciplina.csproj": {}
+    "C:\\Users\\20231014040004\\Desktop\\Programa-o\\C#\\disciplina\\disciplina.csproj": {}
   },
   "projects": {
-    "C:\\Users\\20231014040004\\Programa-o\\C#\\disciplina\\disciplina.csproj": {
+    "C:\\Users\\20231014040004\\Desktop\\Programa-o\\C#\\disciplina\\disciplina.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\20231014040004\\Programa-o\\C#\\disciplina\\disciplina.csproj",
+        "projectUniqueName": "C:\\Users\\20231014040004\\Desktop\\Programa-o\\C#\\disciplina\\disciplina.csproj",
         "projectName": "disciplina",
-        "projectPath": "C:\\Users\\20231014040004\\Programa-o\\C#\\disciplina\\disciplina.csproj",
+        "projectPath": "C:\\Users\\20231014040004\\Desktop\\Programa-o\\C#\\disciplina\\disciplina.csproj",
         "packagesPath": "C:\\Users\\20231014040004\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\20231014040004\\Programa-o\\C#\\disciplina\\obj\\",
+        "outputPath": "C:\\Users\\20231014040004\\Desktop\\Programa-o\\C#\\disciplina\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\20231014040004\\AppData\\Roaming\\NuGet\\NuGet.Config",

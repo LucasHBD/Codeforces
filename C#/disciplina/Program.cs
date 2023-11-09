@@ -3,11 +3,11 @@
 namespace disciplina{
     class Program{
         static void Main(string[] args){
-            Disciplina d1 = new Disciplina("POO", "segundo", 60, 120, true);
-            Disciplina d2 = new Disciplina("Algoritmos", "segundo", 40, 80, false);
-            Disciplina d3 = new Disciplina("Banco de Dados", "terceiro", 80, 60, true);
-            Disciplina d4 = new Disciplina("Banco de Dados", "terceiro", 80, 60, true);
-            Disciplina d5 = new Disciplina("Banco de Dados", "terceiro", 80, 60, true);
+            Disciplina d1 = new Disciplina("POO", "segundo", 60, 120);
+            Disciplina d2 = new Disciplina("Algoritmos", "segundo", 40, 80);
+            Disciplina d3 = new Disciplina("IHC", "segundo", 80, 60);
+            Disciplina d4 = new Disciplina("Arquitetura de Computadores", "sgundo", 80, 60);
+            Disciplina d5 = new Disciplina("Banco de Dados", "terceiro", 80, 60);
             Historico h = new Historico("Lucas");
             h.Inserir(d1);
             h.Inserir(d2);
@@ -17,66 +17,104 @@ namespace disciplina{
             Console.WriteLine(h);
             Console.WriteLine(h.MaiorMedia());
             foreach(Disciplina d in h.Listar()) Console.WriteLine(d);
-            Console.WriteLine(IRA());
-            Console.WriteLine(TotalCH());
+            Console.WriteLine(h.IRA());
+            Console.WriteLine(h.TotalCH());
         }
     }
     class Historico{
-        private string nome;
+        private string aluno;
         private Disciplina[] disciplinas = new Disciplina[5];
         private int k;
-        public Historico(string nome){this.nome = nome;}
+        public Historico(string aluno){this.aluno = aluno;}
         public void Inserir(Disciplina d){
             if(k<5) disciplinas[k++] = d;
         }
         public Disciplina[] Listar(){
             Disciplina[] aux = new Disciplina[k];
             Array.Copy(disciplinas, aux, k);
+            Array.Sort(aux);
             return aux;
         }
         public Disciplina[] ListarSemestre(string semestre){
-            Disciplina[] aux = new Disciplina[k];
+            int qtd = 0;
+            foreach(Disciplina d in Listar())
+                if(d.GetSemestre() == semestre) qtd++;
+            Disciplina[] aux = new Disciplina[qtd];
+            int i = 0;
+            foreach(Disciplina d in Listar())
+                if(d.GetSemestre() == semestre) aux[i++] = d;
             return aux;
         }
         public Disciplina[] MaiorMedia(){
-            int maior = Disciplina[k];
-            if(Disciplina.Media[k+1] > Disciplina.Media[k]) maior = Disciplina[k+1];
-            return maior;
+            int media = 0;
+            int qtd = 0;
+            foreach(Disciplina d in Listar())
+                if(d.GetMedia() > media) media = d.GetMedia();
+            foreach(Disciplina d in Listar())
+                if(d.GetMedia() == media) qtd++;
+            Disciplina[] aux = new Disciplina[qtd];
+            int i = 0;
+            foreach(Disciplina d in Listar())
+                if(d.GetMedia() == media) aux[i++] = d;
+            return aux;
         }
         public double IRA(){
-            double i = 0;
-            foreach(Disciplina d in Listar()){
-                i += Disciplina.Media;
-            }
-            return double.Parse(i)/k;
+            double media = 0;
+            int qtd = 0;
+            foreach(Disciplina d in Listar())
+                if(d.GetAprovado()){
+                    media = d.GetMedia();
+                    qtd++;    
+                }
+            if(qtd == 0) return 0;
+            return media/qtd; 
         }
         public int TotalCH(){
             int ch = 0;
             foreach(Disciplina d in Listar()){
-                ch += Disciplina.Ch;
+                if(d.GetAprovado()) ch += d.GetCH();
             }
             return ch;
         }
         public override string ToString(){
-            return $"{nome}, cursa {k} Disciplina(s),";
+            return $"{aluno}, cursa {k} Disciplina(s),";
         }
     }
     class Disciplina : IComparable{
         private string nome, semestre;
         private int media, ch;
         private bool aprovado;
-        public Disciplina(string nome, string semestre, int media, int ch, bool aprovado){
+        public Disciplina(string nome, string semestre, int media, int ch){
             this.nome = nome;
             this.semestre = semestre;
             this.media = media;
             this.ch = ch;
-            this.aprovado = aprovado;
+            this.aprovado = media >= 60;
+            if(nome == "" || semestre == "" || media < 0 || media > 100) throw new ArgumentOutOfRangeException();
+            if(ch <= 0) throw new ArgumentOutOfRangeException();
         }
-        public string Nome{get; set;}
-        public string Semestre{get; set;}
-        public int Media{get; set;}
-        public int Ch{get; set;}
-        public bool Aprovado{get; set;}
+        public string GetNome(){return nome;}
+        public string GetSemestre(){return semestre;}
+        public int GetMedia(){return media;}
+        public int GetCH(){return ch;}
+        public bool GetAprovado(){return aprovado;}
+        public void SetNome(string nome) {
+            if(nome == "") throw new ArgumentOutOfRangeException();
+            this.nome = nome;
+        }
+        public void SetSemestre(string semestre) {
+            if(semestre == "") throw new ArgumentOutOfRangeException();
+            this.semestre = semestre;
+        } 
+        public void SetMedia(int media) {
+            if(media < 0 || media > 100) throw new ArgumentOutOfRangeException();
+            this.media = media;
+            this.aprovado = media >= 60;
+        }
+        public void SetCH(int ch) {
+            if(ch <= 0) throw new ArgumentOutOfRangeException();
+            this.ch = ch;
+        }
         public override string ToString(){
             return $"{nome}, Cursada no {semestre} semestre, média = {media}, Carga Horária = {ch}, Situação = {aprovado}";
         }
