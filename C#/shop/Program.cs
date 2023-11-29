@@ -29,10 +29,19 @@ namespace shop{
             return int.Parse(Console.ReadLine());
         }
         public static void ProdutoInserir(){
-            
+            Console.Write("Informe o nome do produto: ");
+            string nome = Console.ReadLine();
+            Console.Write("Informe o preço: ");
+            double preco = double.Parse(Console.ReadLine());
+            Console.Write("Informe o estoque: ");
+            int estoque = int.Parse(Console.ReadLine());
+            View.ProdutoInserir(nome, preco, estoque);
+            Console.WriteLine("Produto cadastrado com sucesso");
         }
         public static void ProdutoListar(){
-
+            Console.WriteLine("Cadastro de Produtos");
+            foreach(Produto p in View.ProdutoListar())
+                Console.WriteLine(p);
         }
         public static void ProdutoAtualizar(){
 
@@ -72,7 +81,10 @@ namespace shop{
             }
         }
         public void Excluir(Produto p){
-
+            Produto aux = null;
+            foreach(Produto obj in produtos)
+                if(obj.Id == p.Id) aux = obj;
+            if(aux != null) produtos.Remove(aux);
         }
     }
 }
