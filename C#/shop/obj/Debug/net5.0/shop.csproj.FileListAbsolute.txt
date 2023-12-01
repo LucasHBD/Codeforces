@@ -1,0 +1,16 @@
+C:\Users\20231014040004\Desktop\Programa-o\C#\shop\bin\Debug\net5.0\shop.exe
+C:\Users\20231014040004\Desktop\Programa-o\C#\shop\bin\Debug\net5.0\shop.deps.json
+C:\Users\20231014040004\Desktop\Programa-o\C#\shop\bin\Debug\net5.0\shop.runtimeconfig.json
+C:\Users\20231014040004\Desktop\Programa-o\C#\shop\bin\Debug\net5.0\shop.runtimeconfig.dev.json
+C:\Users\20231014040004\Desktop\Programa-o\C#\shop\bin\Debug\net5.0\shop.dll
+C:\Users\20231014040004\Desktop\Programa-o\C#\shop\bin\Debug\net5.0\ref\shop.dll
+C:\Users\20231014040004\Desktop\Programa-o\C#\shop\bin\Debug\net5.0\shop.pdb
+C:\Users\20231014040004\Desktop\Programa-o\C#\shop\obj\Debug\net5.0\shop.csproj.AssemblyReference.cache
+C:\Users\20231014040004\Desktop\Programa-o\C#\shop\obj\Debug\net5.0\shop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\20231014040004\Desktop\Programa-o\C#\shop\obj\Debug\net5.0\shop.AssemblyInfoInputs.cache
+C:\Users\20231014040004\Desktop\Programa-o\C#\shop\obj\Debug\net5.0\shop.AssemblyInfo.cs
+C:\Users\20231014040004\Desktop\Programa-o\C#\shop\obj\Debug\net5.0\shop.csproj.CoreCompileInputs.cache
+C:\Users\20231014040004\Desktop\Programa-o\C#\shop\obj\Debug\net5.0\shop.dll
+C:\Users\20231014040004\Desktop\Programa-o\C#\shop\obj\Debug\net5.0\ref\shop.dll
+C:\Users\20231014040004\Desktop\Programa-o\C#\shop\obj\Debug\net5.0\shop.pdb
+C:\Users\20231014040004\Desktop\Programa-o\C#\shop\obj\Debug\net5.0\shop.genruntimeconfig.cache
