@@ -3,7 +3,7 @@
 using namespace std;
 
 bool labirinto_bt(int labirinto[12][12], int linha, int coluna, int l, int c){
-    if(l ==-1 || c == -1 || l == linha || c == coluna || labirinto[l][c] == !0) return false;
+    if(l ==-1 || c == -1 || l == linha || c == coluna || labirinto[l][c] != 0) return false;
     if(l == linha -1 && c == coluna -1) return true;
     
     labirinto[l][c] = 9;

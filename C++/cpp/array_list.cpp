@@ -52,7 +52,7 @@ public:
         this->size_--;
         return true; // Removeu
     }
-    int get_at(unsigned int index) { // O(1)
+    int get_at(unsigned int index) { // O(n)
         if(index >= this ->size_) return -1;// TODO: Check if index is valid
         return this->data[index];
     }
@@ -66,8 +66,9 @@ public:
         this->data[size_++] = value;
     }
     void push_front(int value) { // O(1)
-        if(this ->size_ == this ->capacity_) increase_capacity();
-        this ->data[size_--] = value;
+        if(this ->size_ == this ->capacity_) 
+            increase_capacity();
+        this ->data[0] = value;
     }
     bool pop_back() { // O(1)
         if(size_ == 0) return false;
@@ -91,7 +92,7 @@ public:
         if(size_ == 0) return -1;
         return data[0];
     }
-    int back(){ // O(!)
+    int back(){ // O(1)
         if(size_ == 0) return -1;
         return data[-1];
     }
@@ -137,7 +138,7 @@ int main(){
     lista1 ->push_back(11);
     lista1 ->push_back(12);
     lista1 ->push_back(13);
-    lista1 ->push_back(14);
+    lista1 ->push_front(14);
     lista1 ->push_back(2);
     lista1 ->insert_at(10, 45);
     lista1 ->push_back(15);
@@ -146,7 +147,7 @@ int main(){
     cout << lista1 ->sum() << endl;
     cout << lista1 ->percent_occupied() << endl;
     cout << "lista1 = {";
-    for(int i = 0; i<17; i++){
+    for(int i = 0; i<16; i++){
         cout << lista1-> front()<< " ";
         lista1 ->pop_front();
     }
