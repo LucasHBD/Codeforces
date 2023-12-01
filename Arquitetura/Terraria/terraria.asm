@@ -14,6 +14,7 @@ main:
 	addi $18 $0 30
 	addi $19 $0 29
 	addi $20 $0 4
+	addi $21 $0 1020
 	addi $5 $0 0x0084bdf0
 	addi $6 $0 0x0000ff00
 	addi $7 $0 0x0099400C
@@ -210,7 +211,7 @@ fornuvem:
 	lui $9 0x1001
 	lui $12 0xffff
 	addi $10 $0 0x00ffffff
-	addi $16 $0 128
+	addi $16 $0 4
 for2:
 	bne $0 $0 fimtela
 	sw $10 4($9)
@@ -219,31 +220,31 @@ for2:
 	sw $10 516($9)
 	sw $10 520($9)
 	sw $10 524($9)
-	#jal sleept
-#cont10:
-	#lw $11 2052($9)
-	#sw $11 4($9)
-	#lw $11 2056($9)
-	#sw $11 8($9)
-	#lw $11 2560($9)
-	#sw $11 512($9)
-	#lw $11 2564($9)
-	#sw $11 516($9)
-	#lw $11 2568($9)
-	#sw $11 520($9)
-	#lw $11 2572($9)
-	#sw $11 524($9)
-	#add $9 $9 $16
-	#j for2
+	jal sleept
+cont10:
+	lw $11 2052($9)
+	sw $11 4($9)
+	lw $11 2056($9)
+	sw $11 8($9)
+	lw $11 2560($9)
+	sw $11 512($9)
+	lw $11 2564($9)
+	sw $11 516($9)
+	lw $11 2568($9)
+	sw $11 520($9)
+	lw $11 2572($9)
+	sw $11 524($9)
+	add $9 $9 $16
+	j for2
 fimtela: 
 	addi $2 $0 10
 	syscall
-#sleept:
-	##addi $20 $0 500000
-#forst:
-	#beq $20 $0 fimST
-	#nop
-	#addi $20 $20 -1
-	#j forst
-#fimST:
-	#jr $31
+sleept:
+	addi $20 $0 500000
+forst:
+	beq $20 $0 fimST
+	nop
+	addi $20 $20 -1
+	j forst
+fimST:
+	jr $31
