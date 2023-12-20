@@ -2,28 +2,30 @@
 
 using namespace std;
 
-int comb(int n, int k){
-    int i, j;
-    int c[n+1][n+1];
-    for(i = 1; i <=n; i++){
-        c[i][1] = i;
-        c[i][i] = 1;
-        for(j = 2; j<i; j++){
-            c[i][j] = c[i-1][j-1] + c[i-1][j];
+int minMoedas(vector <int>& moedas, int n, int v){
+    vector<int> dp(v+1, INT_MAX);
+    dp[0] = 0;
+
+    for(int i = 1; i<=v; i++){
+        for(int j = 0; j < n; j++){
+            if(moedas[j] <= i && dp[i-moedas[j]] != INT_MAX) {
+                dp[i] = min(dp[i], dp[i-moedas[j]] + 1);
+            }
         }
     }
-    return c[n][k];
+    return dp[v];
 }
 
 int main(){
-    int n, v, numeros;
+    int n, v;
     cin >> n >> v;
-    int troco[n];
+    vector<int> moedas(n);
     for(int i = 0; i<n; i++){
-        cin >> numeros;
-        troco[i] += numeros;
+        cin >> moedas[i];
     }
-    comb = comb(n, v);
-    
+    int resultado = minMoedas(moedas, n, v);
+
+    cout << resultado <<endl;
+
     return 0;
 }
