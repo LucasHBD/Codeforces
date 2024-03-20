@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "9/TdmodmwFfOPpgYUHgLudoC3Haec4DYNDOBLqoq5BTgsN1MZKrRBzKzNNrP0M6b/1tO/eoLXYqMvACnmqRtnw==",
+  "dgSpecHash": "+fhD8ObCHXs4+geTO+lQtyw6qIWsgL/M2V7bgF5T33vPETNfzuDq5X1IsvbmPA+fNrNnHqkCuWwQOGf9jndSAA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\20231014040004\\Desktop\\C#\\cinema\\cinema.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Lucas\\Desktop\\Programa-o\\C#\\cinema\\cinema.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
+  ],
   "logs": []
 }

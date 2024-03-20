@@ -1,16 +1,16 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
-bool labirinto_bt(int labirinto[12][12], int linha, int coluna, int l, int c){
-    if(l ==-1 || c == -1 || l == linha || c == coluna || labirinto[l][c] != 0) return false;
-    if(l == linha -1 && c == coluna -1) return true;
+int tamanho_atual=0;
+int labirinto_bt(int labirinto[12][12], int linha, int coluna, int l, int c){
+    if(l ==-1 || c == -1 || l == linha || c == coluna || labirinto[l][c] != 0) return 0;
+    if(l == linha -1 && c == coluna -1) return 1;
     
     labirinto[l][c] = 9;
-
-    bool ans = labirinto_bt(labirinto, linha, coluna, l+1, c) || 
-    labirinto_bt(labirinto, linha, coluna, l, c +1) || 
-    labirinto_bt(labirinto, linha, coluna, l, c-1) || 
+    tamanho_atual++;
+    int ans = labirinto_bt(labirinto, linha, coluna, l+1, c) + 
+    labirinto_bt(labirinto, linha, coluna, l, c +1) + 
+    labirinto_bt(labirinto, linha, coluna, l, c-1) + 
     labirinto_bt(labirinto, linha, coluna, l-1, c);
     labirinto[l][c] = 0;
     return ans;

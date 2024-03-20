@@ -9,15 +9,15 @@
            true caso contrário
 */
 bool ordenado(int a[], unsigned int t){
-  int i, qtd = 0;
-  for(i = 1; i<t; i++){
-    if(a[i-1] <= a[i]) qtd++;
-    return qtd == t-1;
+  int i, qtd = 0; //declara as variaveis
+  for(i = 1; i<t; i++){ //loop for para percorrer o array
+    if(a[i-1] <= a[i]) qtd++; //verifica se o primeiro indice é menor ou igual ao proximo, se sim, está ordenado
   }
-  int i, ordenado = true;
-  for(i = 1; i<t; i++){
-    if(a[i-1] > a[i]){
-      ordenado = false;
+  return qtd == t-1;
+  int i, ordenado = true; //declara variavel booleana
+  for(i = 1; i<t; i++){ //loop for para percorrer o array
+    if(a[i-1] > a[i]){ // verifica se o primeiro indice é maior q o proximo, se sim, não está ordenado 
+      ordenado = false; // variavel booleana se torna false
       break;
     }
   }
@@ -30,9 +30,9 @@ bool ordenado(int a[], unsigned int t){
   A ordenação é feita diretamente no vetor 'a'
 */
 void selecao(int a[], unsigned int t){
-  int i, j, min, aux;
-  for(i = 0; i<(t-1); i++){
-    min = i;
+  int i, j, min, aux; //declaração de variaveis
+  for(i = 0; i<(t-1); i++){ // loop for para percorrer o array
+    min = i; 
     for(j = (i+1); j<t; j++){
       if(a[j] < a[min]) min =j;
     }

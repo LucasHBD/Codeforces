@@ -13,7 +13,7 @@ int main(){
             reset++;
             soma += MAT[i][j];
             if(reset == 8){
-                cout << "soma da linha " << i + 1 << " = " << soma << endl;
+                cout << "soma da linha " << i + 1 << " = " << soma;
                 if(soma % 2 == 0){ cout << " par" << endl;} else {cout << " impar" << endl;}
                 reset = 0;
                 soma = 0;
@@ -25,7 +25,7 @@ int main(){
             reset++;
             soma += MAT[i][j];
             if(reset == 4){
-                cout << "soma da coluna " << j + 1 << " = " << soma;
+                cout << "soma da coluna " << i + 1 << " = " << soma;
                 if(soma % 2 == 0){ cout << " par" << endl;} else {cout << " impar" << endl;}
                 reset = 0;
                 soma = 0;
